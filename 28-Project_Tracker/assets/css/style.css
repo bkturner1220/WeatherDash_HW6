@@ -1,0 +1,20 @@
+header {
+  display: flex;
+  font-size: 22px;
+  color: black;
+  font-family: "Inconsolata";
+  text-align: center;
+  justify-content: center;
+  position: relative;
+}
+
+.countdown,
+#clock {
+  display: flex;
+  font-size: 22px;
+  color: blue;
+  font-family: "Inconsolata";
+  text-align: center;
+  justify-content: center;
+  position: relative;
+}

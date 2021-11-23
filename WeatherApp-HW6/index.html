@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="page-header text-center mt-4 mb-4">
+                <h1><strong>Weather Dashboard</strong></h1>
+<hr>
+          </div>
+      </div>
+        <div class="container">
+            <div class="row">
+                <!-- Search column -->
+                <div class="col-md-2">
+                    <div class="row mb-2">
+                        <form id="city-search" method="POST">
+                            <input type="text" id="city-input" placeholder="City">
+                            <input id="search-btn" type="submit" class="btn btn-light mt-1" value="Search">
+                      </form>
+                    </div>
+                    <div class="list-group">
+                        <ul id="past-cities" class="p-0"></ul>
+                    </div>
+                </div>
+                <!-- Current City Weather Display -->
+                <div class="col-md-10">
+                    <div class="jumbotron jumbotron-fluid ml-2 mb-1">
+                        <div class="row justify-content-center d-flex align-items-center">
+                            <h2 id="searchedCityDisplay" class="mb-0"></h2>
+                            <span id="icon-row" class="">
+                        </span>
+                            </div>
+                        <!-- <div class="row justify-content-center">
+                            <small id="country-name"></small>
+                        </div> -->
+                        <br>
+                        <div class="row justify-content-center">
+                            <small id="today-date"></small>
+                        </div>
+                        <div class="card-deck mt-4">
+                            <div class="card shadow-lg p-3 mb-6 bg-white rounded">
+                                <div class="card-body">
+                                    <h6 class="card-title text-center">Current <br> Temp</h6>
+                                    <h3 class="card-text text-center" id="temp-now"></h3>
+                                </div>
+                            </div>
+                            <div class="card shadow-lg p-3 mb-6 bg-white rounded">
+                                <div class="card-body">
+                                    <h6 class="card-title text-center">Humidity</h6>
+                                    <h3 class="card-text text-center" id="humid-now"></h3>
+                                </div>
+                            </div>
+                            <div class="card shadow-lg p-3 mb-6 bg-white rounded">
+                                <div class="card-body">
+                                    <h6 class="card-title text-center">Wind Speed</h6>
+                                    <h3 class="card-text text-center" id="wind-now"></h3>
+                                </div>
+                            </div>
+                            <div class="card shadow-lg p-3 mb-6 bg-white rounded">
+                                <div class="card-body">
+                                    <h6 class="card-title text-center">UV Index</h6>
+                                    <h3 class="card-text text-center" id="uv-index"></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="jumbotron jumbotron-fluid ml-2 mb-0">
+                        <div class="row justify-content-center mb-4">
+                            <h4 class="forecast">5-Day Forecast</h4>
+                        </div>
+                        <div class="card-deck">
+                            <div class="card text-center">
+                                <div class="card-body shadow-sm">
+                                    <p><small class="card-title" id="next-day-1"></small></p>
+                                    <img id="f-icon1"></img>
+                                    <p class="card-text" id="f-temp1"></p>
+                                    <p class="card-text" id="f-humid1"></p>
+                                </div>
+                            </div>
+                            <div class="card text-center">
+                                <div class="card-body shadow-sm">
+                                    <p><small class="card-title" id="next-day-2"></small></p>
+                                    <img id="f-icon2"></img>
+                                    <p class="card-text" id="f-temp2"></p>
+                                    <p class="card-text" id="f-humid2"></p>
+                                </div>
+                            </div>
+                            <div class="card text-center">
+                                <div class="card-body shadow-sm">
+                                    <p><small class="card-title" id="next-day-3"></small></p>
+                                    <img id="f-icon3"></img>
+                                    <p class="card-text" id="f-temp3"></p>
+                                    <p class="card-text" id="f-humid3"></p>
+                                </div>
+                            </div>
+                            <div class="card text-center">
+                                <div class="card-body shadow-sm">
+                                    <p><small class="card-title" id="next-day-4"></small></p>
+                                    <img id="f-icon4"></img>
+                                    <p class="card-text" id="f-temp4"></p>
+                                    <p class="card-text" id="f-humid4"></p>
+                                </div>
+                            </div>
+                            <div class="card text-center">
+                                <div class="card-body shadow-sm">
+                                    <p><small class="card-title" id="next-day-5"></small></p>
+                                    <img id="f-icon5"></img>
+                                    <p class="card-text" id="f-temp5"></p>
+                                    <p class="card-text" id="f-humid5"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
